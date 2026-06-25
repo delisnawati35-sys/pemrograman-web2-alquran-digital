@@ -116,7 +116,7 @@ img{
 
 <div class="content">
 
-```
+
 <nav class="navbar navbar-light bg-white shadow-sm">
 
     <div class="container-fluid">
