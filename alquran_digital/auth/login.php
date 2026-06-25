@@ -117,30 +117,30 @@ body{
     <form method="POST">
 
         <div class="mb-3">
-            <label class="form-label">
-                Username
-            </label>
+    <label class="form-label">
+        Username
+    </label>
 
-            <input
-                type="password"
-                name="password"
-                class="form-control"
-                placeholder="Masukkan Password"
-                required>
-        </div>
+    <input
+        type="text"
+        name="username"
+        class="form-control"
+        placeholder="Masukkan Username"
+        required>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">
-                Password
-            </label>
+    <div class="mb-3">
+        <label class="form-label">
+            Password
+        </label>
 
-            <input
-                type="text"
-                name="username"
-                class="form-control"
-                placeholder="Masukkan Username"
-                required>
-        </div>
+        <input
+            type="password"
+            name="password"
+            class="form-control"
+            placeholder="Masukkan Password"
+            required>
+    </div>
 
         <button
             type="submit"
