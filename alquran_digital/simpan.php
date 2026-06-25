@@ -53,9 +53,9 @@ if($errorFile == 0){
         exit;
     }
 
-   $namaBaru = time() . "_" . $namaFile;
+    $namaBaru = time() . "_" . $namaFile;
 
-$tujuan = __DIR__ . "/uploads/" . $namaBaru;
+    $tujuan = __DIR__ . "/uploads/" . $namaBaru;
 
 if(move_uploaded_file($tmpFile, $tujuan)){
     // Upload berhasil, lanjut simpan database
@@ -65,15 +65,10 @@ if(move_uploaded_file($tmpFile, $tujuan)){
 
 } else {
 
-    echo "
-    <script>
-        alert('Gagal upload gambar');
-        window.location='tambah.php';
-    </script>
-    ";
+    echo "Error Upload: " . $errorFile;
     exit;
-}
 
+}
 /*
 |--------------------------------------------------------------------------
 | Simpan ke Database

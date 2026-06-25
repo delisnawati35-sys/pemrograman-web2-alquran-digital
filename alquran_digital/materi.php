@@ -98,7 +98,6 @@ img{
 
 <div class="sidebar">
 
-```
 <h3 class="text-center text-white py-4">
     📖 Al-Qur'an Digital
 </h3>
@@ -108,7 +107,6 @@ img{
 <a href="tambah.php">Tambah Materi</a>
 <a href="laporan.php">Laporan PDF</a>
 <a href="auth/logout.php">Logout</a>
-```
 
 </div>
 

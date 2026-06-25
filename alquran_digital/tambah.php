@@ -58,7 +58,6 @@ body{
 
 <div class="sidebar">
 
-```
 <h3 class="text-center text-white py-4">
     📖 Al-Qur'an Digital
 </h3>
@@ -76,7 +75,6 @@ body{
 
 <div class="content">
 
-```
 <nav class="navbar navbar-light bg-white shadow-sm">
 
     <div class="container-fluid">
@@ -300,7 +298,6 @@ body{
     </div>
 
 </div>
-```
 
 </div>
 
