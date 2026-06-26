@@ -5,8 +5,4 @@ echo "Koneksi Database Berhasil";
 ?>
 
 <?php
-if (function_exists('mysqli_connect')) {
-    echo "mysqli READY";
-} else {
-    echo "mysqli NOT AVAILABLE";
-}
+var_dump(function_exists('mysqli_connect'));
