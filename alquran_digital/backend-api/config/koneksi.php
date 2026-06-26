@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/env.php';
+include __DIR__ . '/../backend-api/config/koneksi.php';
 
 $host = $_ENV['DB_HOST'];
 $port = $_ENV['DB_PORT'];
