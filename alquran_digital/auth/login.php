@@ -8,7 +8,7 @@ include '../config/koneksi.php';
 |--------------------------------------------------------------------------
 */
 if(isset($_SESSION['login'])){
-    header("Location: ../dashboard.php");
+    header("Location: /dashboard");
     exit;
 }
 
@@ -41,7 +41,7 @@ if(isset($_POST['login'])){
         $_SESSION['id_admin'] = $data['id_admin'];
         $_SESSION['username'] = $data['username'];
 
-        header("Location: ../dashboard.php");
+            header("Location: /dashboard");
         exit;
 
     } else {
