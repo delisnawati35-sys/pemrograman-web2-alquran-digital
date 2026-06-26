@@ -5,4 +5,9 @@ echo "Koneksi Database Berhasil";
 ?>
 
 <?php
-var_dump(function_exists('mysqli_connect'));
+
+echo "DB_HOST = ";
+var_dump(getenv('DB_HOST'));
+
+echo "<br>DB_USER = ";
+var_dump(getenv('DB_USERNAME'));
