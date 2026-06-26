@@ -211,14 +211,11 @@ img{
                             <?php echo $no++; ?>
                         </td>
 
-                        <td>
-
-                            <img
-                            src="uploads/<?php echo $data['gambar_materi']; ?>"
-                            width="80">
-
+                        <<td>
+                            <?= !empty($data['gambar_materi']) 
+                                ? "<img src='{$data['gambar_materi']}' style='max-width:200px;'>" 
+                                : "-" ?>
                         </td>
-
                         <td>
                             <?php echo $data['kode_materi']; ?>
                         </td>
@@ -269,7 +266,6 @@ img{
     </div>
 
 </div>
-```
 
 </div>
 

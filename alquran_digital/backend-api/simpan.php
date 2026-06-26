@@ -1,6 +1,14 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
+
+require_once __DIR__ . '/vendor/autoload.php';
 include 'config/koneksi.php';
+require_once __DIR__ . '/config/cloudinary.php';
+
+use Cloudinary\Api\Upload\UploadApi;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,24 +34,24 @@ $target_pembelajaran= mysqli_real_escape_string($koneksi,$_POST['target_pembelaj
 $tanggal_input      = $_POST['tanggal_input'];
 $status_materi      = $_POST['status_materi'];
 
+
 /*
 |--------------------------------------------------------------------------
-| Upload Gambar
+| Upload Gambar ke Cloudinary
 |--------------------------------------------------------------------------
 */
-$namaFile   = $_FILES['gambar_materi']['name'];
-$tmpFile    = $_FILES['gambar_materi']['tmp_name'];
-$errorFile  = $_FILES['gambar_materi']['error'];
+$errorFile = $_FILES['gambar_materi']['error'];
 
-if($errorFile == 0){
+if ($errorFile == 0) {
 
     $ekstensiValid = ['jpg','jpeg','png'];
 
-    $ekstensi = strtolower(
-        pathinfo($namaFile, PATHINFO_EXTENSION)
-    );
+    $namaFile = $_FILES['gambar_materi']['name'];
+    $tmpFile  = $_FILES['gambar_materi']['tmp_name'];
 
-    if(!in_array($ekstensi,$ekstensiValid)){
+    $ekstensi = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+
+    if (!in_array($ekstensi, $ekstensiValid)) {
         echo "
         <script>
             alert('Format gambar harus JPG, JPEG, atau PNG');
@@ -53,20 +61,26 @@ if($errorFile == 0){
         exit;
     }
 
-    $namaBaru = time() . "_" . $namaFile;
+    try {
 
-    $tujuan = __DIR__ . "/uploads/" . $namaBaru;
+        $upload = (new UploadApi())->upload(
+            $tmpFile,
+            [
+                'folder' => 'alquran_digital'
+            ]
+        );
 
-if(move_uploaded_file($tmpFile, $tujuan)){
-    // Upload berhasil, lanjut simpan database
+        $namaBaru = $upload['secure_url'];
+
+    } catch (Exception $e) {
+
+        die("Upload Cloudinary gagal : " . $e->getMessage());
+
+    }
+
 } else {
-    die("Upload gagal");
-}
 
-} else {
-
-    echo "Error Upload: " . $errorFile;
-    exit;
+    die("Upload file gagal.");
 
 }
 /*
