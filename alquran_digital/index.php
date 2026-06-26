@@ -10,7 +10,7 @@ if ($request === '/' || $request === '') {
 
 // AUTH / FRONTEND
 if (str_starts_with($request, '/auth')) {
-    require __DIR__ . '/frontend/auth/login.php';
+    require __DIR__ . '/auth/login.php';
     exit;
 }
 
