@@ -2,19 +2,14 @@
 
 require_once __DIR__ . '/env.php';
 
-$host = $_ENV['DB_HOST'];
-$port = $_ENV['DB_PORT'];
-$user = $_ENV['DB_USERNAME'];
-$password = $_ENV['DB_PASSWORD'];
-$database = $_ENV['DB_DATABASE'];
+$host = getenv('DB_HOST');
+$user = getenv('DB_USERNAME');
+$pass = getenv('DB_PASSWORD');
+$db   = getenv('DB_DATABASE');
+$port = getenv('DB_PORT');
 
-$koneksi = mysqli_connect(
-    $host,
-    $user,
-    $password,
-    $database,
-    $port
-);
+$conn = mysqli_connect($host, $user, $pass, $db, $port);
+
 
 if (!$koneksi) {
     die("Koneksi Database Gagal : " . mysqli_connect_error());
