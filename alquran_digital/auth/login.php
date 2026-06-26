@@ -1,7 +1,6 @@
 <?php
 session_start();
-include __DIR__ . '/../backend-api/config/koneksi.php';
-/*
+include __DIR__ . '/../backend-api/config/koneksi.php';/*
 |--------------------------------------------------------------------------
 | Jika sudah login langsung ke dashboard
 |--------------------------------------------------------------------------
